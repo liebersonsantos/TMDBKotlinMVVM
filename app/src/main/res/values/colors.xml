@@ -6,4 +6,6 @@
 
     <color name="background_home">#444444</color>
     <color name="toolbar_color">#000000</color>
+    <color name="white_color">#FFFFFF</color>
+
 </resources>

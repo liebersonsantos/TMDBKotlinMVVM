@@ -1,4 +1,4 @@
-package com.liebersonsantos.tmdbkotlinmvvm.presentation.home.adapter
+package com.liebersonsantos.tmdbkotlinmvvm.presentation.fragment.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +10,10 @@ import com.liebersonsantos.tmdbkotlinmvvm.data.model.MovieResult
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class HomeAdapter(
+class HomeFragmentAdapter(
     val movies: List<MovieResult>,
     val itemClickListener: ((movieResult: MovieResult) -> Unit)
-) : RecyclerView.Adapter<HomeAdapter.HomeAdapterViewHolder>() {
+) : RecyclerView.Adapter<HomeFragmentAdapter.HomeAdapterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAdapterViewHolder {
         val itemView =

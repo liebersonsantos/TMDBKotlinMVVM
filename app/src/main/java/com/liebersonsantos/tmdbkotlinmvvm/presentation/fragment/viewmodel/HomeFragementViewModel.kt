@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel: ViewModel() {
+class HomeFragmentViewModel: ViewModel() {
 
     val movieListLiveData: MutableLiveData<List<MovieResult>> = MutableLiveData()
     val repository = MovieRepository()
@@ -28,7 +28,7 @@ class HomeViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                Log.e(HomeViewModel::class.java.simpleName, " --> ${t.message}")
+                Log.e(HomeFragmentViewModel::class.java.simpleName, " --> ${t.message}")
             }
 
         })
