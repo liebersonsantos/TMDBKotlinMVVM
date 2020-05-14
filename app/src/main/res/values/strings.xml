@@ -1,7 +1,16 @@
 <resources>
     <string name="app_name">TMDBKotlinMVVM</string>
-    <string name="text_toolbar_home">Home</string>
+    <string name="text_toolbar_home">ZupFlix</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="zupflix_text">ZupFlix</string>
+    <string name="email_hint">email</string>
+    <string name="password_hint">password</string>
+    <string name="create_account_login">Não possui uma conta na ZupFlix??? Não perca mais tempo, clique para criar a sua conta</string>
+    <string name="text_login_button">Login</string>
+    <string name="text_register">Cadastro</string>
+    <string name="text_insert_name">Insira seu nome</string>
+    <string name="text_ok">Ok</string>
+    <string name="insert_password">Insira sua senha</string>
 </resources>

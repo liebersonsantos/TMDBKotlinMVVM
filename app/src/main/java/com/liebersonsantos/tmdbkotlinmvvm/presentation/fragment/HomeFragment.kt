@@ -29,15 +29,15 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        activity?.let { fragemntActivity ->
-            viewModel.movieListLiveData.observe(fragemntActivity, Observer {
+        activity?.let { fragmentActivity ->
+            viewModel.movieListLiveData.observe(fragmentActivity, Observer {
                 it?.let { movieList ->
                     with(recyclerViewHome) {
-                        layoutManager = GridLayoutManager(fragemntActivity, 2)
+                        layoutManager = GridLayoutManager(fragmentActivity, 2)
                         setHasFixedSize(true)
                         adapter = HomeFragmentAdapter(movieList) { movie ->
                             Toast.makeText(
-                                fragemntActivity,
+                                fragmentActivity,
                                 "Detalhe do filme ${movie.originalTitle}",
                                 Toast.LENGTH_SHORT
                             ).show()
