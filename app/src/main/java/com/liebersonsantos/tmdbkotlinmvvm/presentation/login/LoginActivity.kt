@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.liebersonsantos.tmdbkotlinmvvm.R
 import com.liebersonsantos.tmdbkotlinmvvm.presentation.home.view.HomeActivity
 import com.liebersonsantos.tmdbkotlinmvvm.presentation.login.loginviewmodel.LoginViewModel
+import com.liebersonsantos.tmdbkotlinmvvm.presentation.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -24,10 +25,22 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        createAccount()
+        login()
+
+    }
+
+    fun createAccount(){
+        textCreateAccount.setOnClickListener{
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+        }
+    }
+
+    fun login(){
         button.setOnClickListener {
 
-            when (isValid()) {
-                0 -> Toast.makeText(this@LoginActivity, "Preencha o campo e-mail", Toast.LENGTH_SHORT).show()
+            when (viewModel.isValid(editTextEmail, editTextPassword)) {
+                0 -> Toast.makeText(this@LoginActivity, "Preencha todos os campos para acessar o aplicativo", Toast.LENGTH_SHORT).show()
                 1 -> Toast.makeText(this@LoginActivity, "Preencha o campo password", Toast.LENGTH_SHORT).show()
                 2 -> Toast.makeText(this@LoginActivity, "Preencha corretamente o campo e-mail", Toast.LENGTH_SHORT).show()
                 else -> {
@@ -35,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
                         it?.let {
                             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                             Log.i(LoginActivity::class.java.simpleName, it.email)
+                            finish()
                         } ?: run {
                             Toast.makeText(this@LoginActivity, "Email ou senha inválido", Toast.LENGTH_SHORT).show()
                         }
@@ -43,16 +57,5 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-
-    }
-
-    fun isValid(): Int {
-        return if (TextUtils.isEmpty(editTextEmail.text.toString())) {
-            return 0
-        } else if (TextUtils.isEmpty(editTextPassword.text.toString())) {
-            return 1
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(editTextPassword.text.toString()).matches()) {
-            return 2
-        } else -1
     }
 }

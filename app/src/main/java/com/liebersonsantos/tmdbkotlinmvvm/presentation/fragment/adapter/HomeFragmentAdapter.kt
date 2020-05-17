@@ -1,5 +1,6 @@
 package com.liebersonsantos.tmdbkotlinmvvm.presentation.fragment.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,7 @@ class HomeFragmentAdapter(
         private val textVoteAverage = itemView.textVoteAverage
         private val imageViewMovie = itemView.imageViewMovie
         private val textReleaseDate = itemView.textReleaseDate
+        private val imageFavorite = itemView.imageFavoriteMovie
         private val picasso = Picasso.get()
 
         fun bind(movie: MovieResult) {
